@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get("/lottery/lucky", { :controller => "lottery", :action => "lucky"})
   get("/lottery/unlucky", { :controller => "lottery", :action => "unlucky"})
 
+  get("/roll/:number_of_dice/:how_many_sides",{:controller => "dice", :action => "infinity_and_beyond"})
+
   # PART 2: RCAV DEBUGGING
   # ======================
 
