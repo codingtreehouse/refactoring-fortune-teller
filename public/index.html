@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Beautiful Light Transparent Form</title>
+	<style>
+		body {
+			background-color: #f1f1f1;
+		}
+		form {
+			background-color: rgba(255, 255, 255, 0.9);
+			padding: 20px;
+			max-width: 500px;
+			margin: 0 auto;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+		label {
+			display: block;
+			font-family:Arial, Helvetica, sans-serif;
+			font-weight: bold;
+			margin-bottom: 10px;
+			color: #555;
+		}
+		input[type="text"], select, textarea {
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			width: 100%;
+			margin-bottom: 20px;
+			box-sizing: border-box;
+		}
+		input[type="submit"] {
+			background-color: #adadad;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		input[type="submit"]:hover {
+			background-color: #adadad;
+		}
+		.popup {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			font-family: Arial, Helvetica, sans-serif;
+			height: 100%;
+			background-color: rgba(0,0,0,0.15);
+			z-index: 1;
+		}
+
+		/* Popup form - centered horizontally and vertically */
+		.popup-form {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 500px;
+			padding: 20px;
+			font-family: Arial, Helvetica, sans-serif;
+			background-color: #fff;
+			border-radius: 5px;
+			box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+		}
+
+		/* Close button - top right corner */
+		.popup-close {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			font-size: 26px;
+			font-family: Arial, Helvetica, sans-serif;
+			font-weight: bold;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+
+	<button onclick="openPopup()">Open Form</button>
+
+	<!-- Popup container and form -->
+	<div id="popup-container" class="popup">
+		<div class="popup-form">
+			<span class="popup-close" onclick="closePopup()">&times;</span>
+
+	<h2>Begin your consoltation</h2>
+
+		<form>
+			<label for="category">Category:</label>
+			<select id="category" name="category">
+				<option value="option1">Option 1</option>
+				<option value="option2">Option 2</option>
+				<option value="option3">Option 3</option>
+			</select>
+
+			<label for="subcategory">Subcategory:</label>
+			<select id="subcategory" name="subcategory">
+				<option value="suboption1">Suboption 1</option>
+				<option value="suboption2">Suboption 2</option>
+				<option value="suboption3">Suboption 3</option>
+			</select>
+
+			<label for="name">Name:</label>
+			<input type="text" id="name" name="name" placeholder="Enter your name">
+
+			<label for="email">Email:</label>
+			<input type="text" id="email" name="email" placeholder="Enter your email">
+
+			<label for="message">Message:</label>
+			<textarea id="message" name="message" rows="5" placeholder="Enter your message"></textarea>
+
+			<input type="submit" value="Submit">
+		</form>
+		</div>
+	</div>
+
+	<script>
+		// Function to open the popup
+		function openPopup() {
+			document.getElementById("popup-container").style.display = "block";
+		}
+
+		// Function to close the popup
+		function closePopup() {
+			document.getElementById("popup-container").style.display = "none";
+		}
+	</script>
+
+</body>
+</html>
