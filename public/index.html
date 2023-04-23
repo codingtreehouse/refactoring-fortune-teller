@@ -11,8 +11,8 @@
 			padding: 20px;
 			max-width: 500px;
 			margin: 0 auto;
-			border-radius: 10px;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+			border-radius: 20px;
+			box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 		}
 		label {
 			display: block;
@@ -24,17 +24,34 @@
 		input[type="text"], select, textarea {
 			padding: 10px;
 			border: 1px solid #ccc;
-			border-radius: 5px;
+			border-radius: 20px;
+			width: 100%;
+			margin-bottom: 20px;
+			box-sizing: border-box;
+		}
+		input[type="text_h"], select, textarea {
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 20px;
+			width: 49.5%;
+			margin-bottom: 20px;
+			box-sizing: border-box;
+		}
+		input[type="phone"], select, textarea {
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 20px;
 			width: 100%;
 			margin-bottom: 20px;
 			box-sizing: border-box;
 		}
 		input[type="submit"] {
 			background-color: #adadad;
-			color: white;
+			color: #ffffff;
 			padding: 10px 20px;
 			border: none;
-			border-radius: 5px;
+			width: 100%;
+			border-radius: 20px;
 			cursor: pointer;
 		}
 		input[type="submit"]:hover {
@@ -51,7 +68,10 @@
 			background-color: rgba(0,0,0,0.15);
 			z-index: 1;
 		}
-
+		.no-resize {
+		resize: none;
+		font-family: Arial, Helvetica, sans-serif;
+		}
 		/* Popup form - centered horizontally and vertically */
 		.popup-form {
 			position: absolute;
@@ -61,17 +81,22 @@
 			width: 500px;
 			padding: 20px;
 			font-family: Arial, Helvetica, sans-serif;
-			background-color: #fff;
+			background-color: #ffffff;
 			border-radius: 5px;
 			box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
 		}
-
+		.centered-text {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
 		/* Close button - top right corner */
 		.popup-close {
 			position: absolute;
 			top: 10px;
 			right: 10px;
 			font-size: 26px;
+			color:#adadad;
 			font-family: Arial, Helvetica, sans-serif;
 			font-weight: bold;
 			cursor: pointer;
@@ -87,31 +112,32 @@
 		<div class="popup-form">
 			<span class="popup-close" onclick="closePopup()">&times;</span>
 
-	<h2>Begin your consoltation</h2>
+	<h2 class="centered-text">Begin your consoltation</h2>
 
 		<form>
-			<label for="category">Category:</label>
+			<input type="text_h" id="f_name" name="f_name" placeholder="First name">
+			<input type="text_h" id="l_name" name="l_name" placeholder="Last name">
+			<input type="text" id="email" name="email" placeholder="Email">
+			<input type="phone" id="phone" name="phone" placeholder="Phone">
+
+			<label for="category">Item category</label>
 			<select id="category" name="category">
-				<option value="option1">Option 1</option>
-				<option value="option2">Option 2</option>
-				<option value="option3">Option 3</option>
+				<option disabled selected value="">Select one</option>
+				<option value="option1">Handbag</option>
+				<option value="option2">Shoes</option>
+				<option value="option3">Other</option>
 			</select>
 
-			<label for="subcategory">Subcategory:</label>
+			<label for="subcategory">Item brand</label>
 			<select id="subcategory" name="subcategory">
+				<option disabled selected value="">Select one</option>
 				<option value="suboption1">Suboption 1</option>
 				<option value="suboption2">Suboption 2</option>
 				<option value="suboption3">Suboption 3</option>
 			</select>
 
-			<label for="name">Name:</label>
-			<input type="text" id="name" name="name" placeholder="Enter your name">
-
-			<label for="email">Email:</label>
-			<input type="text" id="email" name="email" placeholder="Enter your email">
-
 			<label for="message">Message:</label>
-			<textarea id="message" name="message" rows="5" placeholder="Enter your message"></textarea>
+			<textarea class="no-resize" id="message" name="message" rows="5" placeholder="Enter your message"></textarea>
 
 			<input type="submit" value="Submit">
 		</form>
